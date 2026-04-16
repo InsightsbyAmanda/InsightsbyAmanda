@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amanda Enyi-Igbokwe | Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ─── CSS VARIABLES ─── */
+  :root {
+    --olive: #4A5240;
+    --olive-dark: #323728;
+    --olive-light: #6B7560;
+    --olive-pale: #F2F3EE;
+    --gold: #C2A14D;
+    --gold-light: #D4B86A;
+    --gold-pale: #F7F1E3;
+    --white: #FAFAF8;
+    --text: #1E2018;
+    --text-mid: #4A4D40;
+    --text-soft: #7A7D6E;
+    --border: #DDE0D4;
+    --card-bg: #FFFFFF;
+    --shadow: 0 2px 20px rgba(50,55,40,0.07);
+    --shadow-hover: 0 12px 40px rgba(50,55,40,0.14);
+    --radius: 10px;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --nav-h: 68px;
+  }
+
+  /* ─── RESET ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+  ul { list-style: none; }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--olive-pale); }
+  ::-webkit-scrollbar-thumb { background: var(--olive-light); border-radius: 3px; }
+
+  /* ─── UTILITY ─── */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .section { padding: 90px 0; }
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 40px);
+    color: var(--olive-dark);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .section-sub {
+    font-size: 15.5px;
+    color: var(--text-soft);
+    max-width: 560px;
+    margin-bottom: 52px;
+  }
+
+  /* ─── FADE-IN ANIMATION ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  /* ─── NAVBAR ─── */
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    height: var(--nav-h);
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  #navbar.scrolled { box-shadow: 0 2px 20px rgba(50,55,40,0.10); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--olive-dark);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--olive-dark); }
+  .nav-cta {
+    background: var(--olive-dark);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--olive) !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--olive-dark);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-h); left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 28px 24px;
+    z-index: 999;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-mid);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--olive-pale);
+    padding-top: var(--nav-h);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(194,161,77,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,82,64,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(194,161,77,0.3);
+    border-radius: 40px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5.5vw, 56px);
+    color: var(--olive-dark);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .hero-title {
+    font-size: clamp(14px, 2vw, 17px);
+    font-weight: 500;
+    color: var(--olive-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2.5vw, 22px);
+    color: var(--olive);
+    font-style: italic;
+    margin-bottom: 22px;
+    max-width: 560px;
+    line-height: 1.4;
+  }
+  .hero-intro {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--olive-dark);
+    color: var(--white);
+    padding: 13px 26px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 2px solid var(--olive-dark);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--olive); border-color: var(--olive); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--olive-dark);
+    padding: 13px 26px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 2px solid var(--olive-dark);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { background: var(--olive-dark); color: var(--white); transform: translateY(-1px); }
+  .hero-stats {
+    display: flex;
+    gap: 28px;
+    margin-top: 44px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .stat { flex: 1; min-width: 100px; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--olive-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: var(--text-soft); font-weight: 500; letter-spacing: 0.04em; }
+  .hero-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-card-graphic {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow-hover);
+    width: 100%;
+    max-width: 300px;
+  }
+  .hcg-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hcg-row:last-child { border-bottom: none; }
+  .hcg-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+  }
+  .hcg-label { font-size: 13px; font-weight: 500; color: var(--text-mid); }
+  .hcg-val { font-size: 11px; color: var(--text-soft); }
+  .hcg-bar-wrap { flex: 1; }
+  .hcg-bar { height: 5px; border-radius: 5px; background: var(--border); position: relative; overflow: hidden; }
+  .hcg-fill { height: 100%; border-radius: 5px; background: var(--gold); }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    margin-bottom: 18px;
+    line-height: 1.75;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-highlights { display: flex; flex-direction: column; gap: 18px; }
+  .highlight-card {
+    background: var(--olive-pale);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    border-left: 3px solid var(--gold);
+  }
+  .highlight-card h4 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--olive-dark);
+    margin-bottom: 5px;
+  }
+  .highlight-card p { font-size: 13.5px; color: var(--text-soft); line-height: 1.55; }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--olive-pale); }
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--olive-light));
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -26px;
+    top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .tl-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .tl-date {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tl-deg {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: var(--olive-dark);
+    margin-bottom: 4px;
+  }
+  .tl-school { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+  .tl-loc { font-size: 13px; color: var(--text-soft); margin-top: 3px; }
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1px solid rgba(194,161,77,0.4);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-top: 28px;
+    width: 100%;
+  }
+  .cert-icon {
+    width: 40px; height: 40px;
+    background: var(--gold-pale);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .cert-name { font-size: 14px; font-weight: 600; color: var(--olive-dark); }
+  .cert-date { font-size: 12px; color: var(--text-soft); }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--white); }
+  .exp-grid { display: flex; flex-direction: column; gap: 28px; }
+  .exp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .exp-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 18px; flex-wrap: wrap; }
+  .exp-org { font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
+  .exp-role { font-family: var(--font-display); font-size: 19px; color: var(--olive-dark); }
+  .exp-period {
+    font-size: 12.5px; font-weight: 500;
+    color: var(--text-soft);
+    background: var(--olive-pale);
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .exp-bullets { padding-left: 0; display: flex; flex-direction: column; gap: 9px; }
+  .exp-bullets li {
+    font-size: 14.5px;
+    color: var(--text-mid);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+  .tag {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--olive);
+    background: var(--olive-pale);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--olive-pale); }
+  .filter-bar {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .filter-btn {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-mid);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--olive-dark);
+    color: var(--white);
+    border-color: var(--olive-dark);
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .proj-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 26px 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: box-shadow 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .proj-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--olive-light));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .proj-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+  .proj-card:hover::before { opacity: 1; }
+  .proj-cat-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 3px 9px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+  .proj-title {
+    font-family: var(--font-display);
+    font-size: 17.5px;
+    color: var(--olive-dark);
+    line-height: 1.25;
+  }
+  .proj-desc { font-size: 14px; color: var(--text-mid); line-height: 1.65; flex: 1; }
+  .proj-highlight {
+    font-size: 13px;
+    color: var(--olive);
+    background: var(--olive-pale);
+    border-radius: 6px;
+    padding: 10px 13px;
+    line-height: 1.5;
+    border-left: 2px solid var(--olive-light);
+  }
+  .proj-highlight strong { font-weight: 600; color: var(--olive-dark); }
+  .proj-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tool-chip {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--olive);
+    background: var(--olive-pale);
+    padding: 3px 9px;
+    border-radius: 4px;
+  }
+  .btn-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+    border-radius: 6px;
+    padding: 9px 16px;
+    margin-top: 4px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    align-self: flex-start;
+  }
+  .btn-view:hover { background: var(--gold); color: var(--white); }
+  .proj-card.hidden { display: none; }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--white); }
+  .skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .skill-group {
+    background: var(--olive-pale);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+  }
+  .skill-group-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .skill-item { margin-bottom: 14px; }
+  .skill-item:last-child { margin-bottom: 0; }
+  .skill-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+  .skill-name { font-size: 13.5px; font-weight: 500; color: var(--olive-dark); }
+  .skill-pct { font-size: 12px; color: var(--text-soft); font-weight: 600; }
+  .skill-track { height: 5px; background: var(--border); border-radius: 5px; overflow: hidden; }
+  .skill-bar {
+    height: 100%; border-radius: 5px;
+    background: linear-gradient(90deg, var(--gold), var(--olive-light));
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--olive-dark); color: var(--white); }
+  #contact .section-label { color: var(--gold-light); }
+  #contact .section-title { color: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .contact-intro { font-size: 15.5px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 36px; }
+  .contact-items { display: flex; flex-direction: column; gap: 18px; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ci-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .ci-label { font-size: 11px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+  .ci-val { font-size: 14.5px; color: var(--white); font-weight: 500; }
+  .ci-val a { color: var(--gold-light); transition: color 0.2s; }
+  .ci-val a:hover { color: var(--gold); }
+  .contact-cta-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 36px 32px;
+  }
+  .contact-cta-box h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .contact-cta-box p { font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 28px; }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold);
+    color: var(--olive-dark);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .social-row {
+    display: flex; gap: 14px;
+    margin-top: 28px;
+  }
+  .social-link {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    color: var(--white);
+    transition: background 0.2s;
+  }
+  .social-link:hover { background: rgba(194,161,77,0.25); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--olive-dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 24px 0;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+  }
+  footer span { color: var(--gold); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-graphic { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .section { padding: 64px 0; }
+    .hero-stats { gap: 18px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-wrapper { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Amanda <span>EI</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge fade-up visible">Available for Opportunities</div>
+        <h1 class="hero-name fade-up visible" style="transition-delay:0.08s">
+          Ebubechi Amanda<br>Enyi-Igbokwe
+        </h1>
+        <div class="hero-title fade-up visible" style="transition-delay:0.15s">Data Analyst | Analytics &amp; AI</div>
+        <p class="hero-tagline fade-up visible" style="transition-delay:0.22s">
+          Transforming data into actionable insights that drive business decisions.
+        </p>
+        <p class="hero-intro fade-up visible" style="transition-delay:0.29s">
+          Data-driven professional with a strong background in analytics, finance, and business strategy, currently pursuing a Masters in Business Analytics and Artificial Intelligence. Deep expertise in SQL, Python, and Power BI, alongside strong data modeling and ETL capabilities — building scalable, high-performance analytics systems.
+        </p>
+        <div class="hero-actions fade-up visible" style="transition-delay:0.36s">
+          <a href="#projects" class="btn-primary">View Projects ↓</a>
+          <a href="#contact" class="btn-outline">Contact Me</a>
+        </div>
+        <div class="hero-stats fade-up visible" style="transition-delay:0.44s">
+          <div class="stat">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Power BI Solutions</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">£2M+</div>
+            <div class="stat-label">Resource Decisions Informed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">60%</div>
+            <div class="stat-label">ETL Time Reduction</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <div class="hero-card-graphic">
+          <div class="hcg-row">
+            <div class="hcg-icon" style="background:#F2F3EE;">📊</div>
+            <div style="flex:1">
+              <div class="hcg-label">Power BI</div>
+              <div class="hcg-bar-wrap"><div class="hcg-bar"><div class="hcg-fill" style="width:95%"></div></div></div>
+            </div>
+          </div>
+          <div class="hcg-row">
+            <div class="hcg-icon" style="background:#F7F1E3;">🗄️</div>
+            <div style="flex:1">
+              <div class="hcg-label">SQL</div>
+              <div class="hcg-bar-wrap"><div class="hcg-bar"><div class="hcg-fill" style="width:90%"></div></div></div>
+            </div>
+          </div>
+          <div class="hcg-row">
+            <div class="hcg-icon" style="background:#F2F3EE;">🐍</div>
+            <div style="flex:1">
+              <div class="hcg-label">Python</div>
+              <div class="hcg-bar-wrap"><div class="hcg-bar"><div class="hcg-fill" style="width:85%"></div></div></div>
+            </div>
+          </div>
+          <div class="hcg-row">
+            <div class="hcg-icon" style="background:#F7F1E3;">🏗️</div>
+            <div style="flex:1">
+              <div class="hcg-label">Data Modeling</div>
+              <div class="hcg-bar-wrap"><div class="hcg-bar"><div class="hcg-fill" style="width:88%"></div></div></div>
+            </div>
+          </div>
+          <div class="hcg-row">
+            <div class="hcg-icon" style="background:#F2F3EE;">⚙️</div>
+            <div style="flex:1">
+              <div class="hcg-label">ETL & Automation</div>
+              <div class="hcg-bar-wrap"><div class="hcg-bar"><div class="hcg-fill" style="width:82%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-label fade-up">About</div>
+    <h2 class="section-title fade-up">Turning complexity into clarity —<br><em>one dataset at a time.</em></h2>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>I am a data analyst with over six years of progressive experience delivering end-to-end analytics solutions across public sector, real estate, and financial services. My career has been defined by the ability to translate raw, complex data into clear, decision-grade insights — from designing ETL pipelines and dimensional models to building enterprise Power BI dashboards serving thousands of stakeholders.</p>
+        <p>My technical foundation spans advanced SQL, Python, Power BI, and SSIS, underpinned by deep expertise in data warehousing principles including star and snowflake schemas, slowly changing dimensions, and optimized query performance. I take pride not just in building systems that work, but in building systems that scale — reducing refresh times from minutes to seconds and cutting manual processing by 60%.</p>
+        <p>Beyond the technical, I bring a consulting mindset: understanding business objectives first, then designing analytics that drive measurable outcomes. At Lincolnshire County Council, my analysis directly informed over £2 million in resource allocation decisions affecting thousands of children and families across the region.</p>
+        <p>Currently expanding my expertise through a Master of Business Analytics and Artificial Intelligence at Ontario Tech University, I am focused on the intersection of advanced analytics, AI-powered decision-making, and real-world business impact.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>End-to-End Data Solutions</h4>
+          <p>Delivered 10+ complete BI solutions from data ingestion through to enterprise deployment — covering ETL, modeling, DAX, and dashboard delivery.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Measurable Business Impact</h4>
+          <p>Work directly informs multi-million pound resource decisions; achieved 40% ETL performance improvement and 60% reduction in manual processing time.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Cross-Sector Expertise</h4>
+          <p>Track record across public sector, real estate, and financial services — adapting analytics approaches to diverse organizational contexts and stakeholder needs.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Data Storytelling</h4>
+          <p>Skilled at translating analytical findings into compelling narratives for executive audiences, combining technical rigour with clear communication.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EDUCATION ══════════ -->
+<section id="education" class="section">
+  <div class="container">
+    <div class="section-label fade-up">Education &amp; Certification</div>
+    <h2 class="section-title fade-up">Academic Foundation</h2>
+    <p class="section-sub fade-up">A multidisciplinary background spanning accounting, international business, and advanced analytics &amp; AI.</p>
+    <div class="timeline fade-up">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-date">Jan 2026 – Apr 2027</div>
+          <div class="tl-deg">Master of Business Analytics &amp; Artificial Intelligence (MBAI)</div>
+          <div class="tl-school">Ontario Tech University</div>
+          <div class="tl-loc">📍 Ontario, Canada</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-date">Jan 2023 – Feb 2024</div>
+          <div class="tl-deg">MSc International Business with Data Analytics — Merit</div>
+          <div class="tl-school">Ulster University</div>
+          <div class="tl-loc">📍 Birmingham, United Kingdom</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-date">Oct 2011 – Aug 2015</div>
+          <div class="tl-deg">BSc Accounting — Upper Second-Class Honours</div>
+          <div class="tl-school">Veritas University</div>
+          <div class="tl-loc">📍 Abuja, Nigeria</div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-badge fade-up">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <div class="cert-name">Microsoft Certified: Power BI Data Analyst Associate</div>
+        <div class="cert-date">May 2025 &nbsp;·&nbsp; Microsoft</div>
+      </div>
+    </div>
+    <div class="cert-badge fade-up" style="margin-top:12px">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Google Data Analytics Professional Certificate</div>
+        <div class="cert-date">Feb 2024 &nbsp;·&nbsp; Google / Coursera</div>
+      </div>
+    </div>
+    <div class="cert-badge fade-up" style="margin-top:12px">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">Implementing AI Solutions in Business</div>
+        <div class="cert-date">Aug 2025 &nbsp;·&nbsp; DataCamp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EXPERIENCE ══════════ -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-label fade-up">Work Experience</div>
+    <h2 class="section-title fade-up">Career History</h2>
+    <p class="section-sub fade-up">Progressive analytics experience across public sector, real estate, and financial services — consistently delivering measurable impact.</p>
+    <div class="exp-grid">
+
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-org">Lincolnshire County Council · United Kingdom</div>
+            <div class="exp-role">Data Analyst</div>
+          </div>
+          <span class="exp-period">Oct 2024 – Dec 2025</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Led the Annual Childcare Sufficiency Assessment (CSA 2025) end-to-end — automated data collection from 621+ providers, built ETL pipelines, and delivered a dynamic Power BI dashboard directly informing <strong>~£2M in resource allocation</strong> decisions.</li>
+          <li>Delivered <strong>10+ enterprise Power BI solutions</strong> across 9 major departments, incorporating advanced DAX, star schema modeling, Power Query ETL, and deployment via Power BI Service.</li>
+          <li>Automated ETL workflows with SSIS and SQL Server Agent, reducing manual processing time by <strong>60%</strong> and achieving <strong>99.9% data accuracy</strong>.</li>
+          <li>Optimized ETL performance by <strong>40%</strong> via advanced SQL stored procedures (CTEs, window functions, multi-table joins), slashing dashboard refresh times from 5 minutes to under 1 minute.</li>
+          <li>Built custom geographic visualizations with Deneb to map childcare sufficiency gaps at ward level across 100+ electoral wards, identifying 3 critical under-provision areas requiring immediate intervention.</li>
+          <li>Analyzed funded entitlement access for <strong>10,000+ eligible children</strong> and monitored quality trends across 621 early years providers against 17 statutory Early Learning Goals.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Python</span>
+          <span class="tag">SSIS</span><span class="tag">ETL</span><span class="tag">Deneb</span><span class="tag">DAX</span>
+        </div>
+      </div>
+
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-org">Lekki Gardens Estate Limited · Nigeria</div>
+            <div class="exp-role">Data Analyst</div>
+          </div>
+          <span class="exp-period">Oct 2020 – Jan 2023</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built financial models in Excel projecting costs, revenues, and ROI for real estate acquisitions valued at <strong>$50,000+</strong> across Lagos, Abuja, and Port Harcourt markets.</li>
+          <li>Conducted comparative analysis of <strong>100+ commercial and residential properties</strong>, directly contributing to a <strong>12% revenue increase ($200,000)</strong> over a 2-year period.</li>
+          <li>Prepared and presented data-driven portfolio reports to C-suite executives, influencing capital allocation for <strong>expansion into 5 West African markets</strong>.</li>
+          <li>Leveraged Power Query, Pivot Tables, and advanced Excel for ETL across government registries, competitor listings, and demographic databases in 10+ cities.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Financial Modeling</span><span class="tag">Data Analysis</span>
+        </div>
+      </div>
+
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-org">Mutual Trust Microfinance Bank · Nigeria</div>
+            <div class="exp-role">Business Analyst</div>
+          </div>
+          <span class="exp-period">Sept 2019 – Sept 2020</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Coordinated the 2020 Strategic Plan focused on fund mobilization and loan disbursement, resulting in <strong>25% YoY growth ($490,000 in loan portfolio)</strong>.</li>
+          <li>Built financial models supporting the successful issuance of a <strong>$982,000 3-Year Fixed Rate Bond</strong> through Private Placement.</li>
+          <li>Analyzed customer segmentation using SQL, identifying 3 untapped market segments and driving launch of 3 new loan products generating <strong>$150,000 in first-year revenue</strong>.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Financial Modeling</span><span class="tag">Strategic Planning</span>
+        </div>
+      </div>
+
+      <div class="exp-card fade-up">
+        <div class="exp-header">
+          <div>
+            <div class="exp-org">Blackbit Limited · Nigeria</div>
+            <div class="exp-role">Financial Intern</div>
+          </div>
+          <span class="exp-period">Jan 2017 – Aug 2019</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Developed financial forecasting models ensuring <strong>100% compliance</strong> with corporate accounting standards and precise budget allocation across 5 departments.</li>
+          <li>Achieved <strong>zero audit findings</strong> across 8 quarterly audits through rigorous data validation and reconciliation processes.</li>
+          <li>Delivered actionable insights via Pivot Table analysis, improving <strong>profitability margins by 8%</strong>.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Excel</span><span class="tag">Financial Reporting</span><span class="tag">KPI Tracking</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROJECTS ══════════ -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-label fade-up">Projects</div>
+    <h2 class="section-title fade-up">Featured Work</h2>
+    <p class="section-sub fade-up">A curated selection of data visualization and programming projects showcasing analytical depth and storytelling ability.</p>
+    <div class="filter-bar fade-up">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('viz', this)">Data Visualization</button>
+      <button class="filter-btn" onclick="filterProjects('prog', this)">Data Programming</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- VIZ 1 -->
+      <div class="proj-card fade-up" data-cat="viz">
+        <span class="proj-cat-badge">Data Visualization</span>
+        <div class="proj-title">The Quiet Side of Migration</div>
+        <p class="proj-desc">A human-centred data storytelling project exploring the hidden emotional, financial, and systemic challenges faced by international students in Canada — a 12-panel narrative bringing "the invisible side" of migration to life through the journey of a Nigerian student.</p>
+        <div class="proj-highlight"><strong>Key Highlight:</strong> Translated complex socio-economic and policy challenges into engaging visual metaphors (iceberg, decision tree, maze, clock) to highlight migration pressures and psychological impact.</div>
+        <div class="proj-tools">
+          <span class="tool-chip">Data Storytelling</span>
+          <span class="tool-chip">Infographic Design</span>
+          <span class="tool-chip">Visual Prototyping</span>
+        </div>
+        <a href="https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Storyboard" target="_blank" class="btn-view">View Project →</a>
+      </div>
+
+      <!-- VIZ 2 -->
+      <div class="proj-card fade-up" data-cat="viz">
+        <span class="proj-cat-badge">Data Visualization</span>
+        <div class="proj-title">Redesigning Nightingale's Coxcomb</div>
+        <p class="proj-desc">An interactive redesign of Florence Nightingale's historic coxcomb chart — transforming a static visualization into a dynamic, user-driven experience exploring mortality patterns during the Crimean War.</p>
+        <div class="proj-highlight"><strong>Key Highlight:</strong> Enabled dynamic toggling between death counts and mortality rates, with tooltips, annotations, and interactive controls for deeper exploratory analysis.</div>
+        <div class="proj-tools">
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Pandas</span>
+          <span class="tool-chip">NumPy</span>
+          <span class="tool-chip">Plotly</span>
+        </div>
+        <a href="https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Notable%20Information%20Graphic" target="_blank" class="btn-view">View Project →</a>
+      </div>
+
+      <!-- VIZ 3 -->
+      <div class="proj-card fade-up" data-cat="viz">
+        <span class="proj-cat-badge">Data Visualization</span>
+        <div class="proj-title">Canada's CPI Trends: A Five-Year Inflation Breakdown</div>
+        <p class="proj-desc">Analyzes Canada's Consumer Price Index to identify key drivers of inflation between 2017–2022, highlighting how different consumption categories contributed unevenly to overall price growth.</p>
+        <div class="proj-highlight"><strong>Key Highlight:</strong> Identified energy-related categories as primary inflation drivers, uncovering uneven growth patterns linked to COVID-19 disruptions and global energy shocks.</div>
+        <div class="proj-tools">
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Pandas</span>
+          <span class="tool-chip">Matplotlib</span>
+        </div>
+        <a href="https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/cpi-inflation-analysis" target="_blank" class="btn-view">View Project →</a>
+      </div>
+
+      <!-- VIZ 4 -->
+      <div class="proj-card fade-up" data-cat="viz">
+        <span class="proj-cat-badge">Data Visualization</span>
+        <div class="proj-title">AI Tools &amp; Immigrant Economic Mobility in Oshawa</div>
+        <p class="proj-desc">A human-centred, scrollytelling data story exploring how AI tools can improve affordability and economic mobility for newcomers and international students facing credential barriers and wage gaps in Oshawa.</p>
+        <div class="proj-highlight"><strong>Key Highlight:</strong> Developed a scrollytelling experience integrating narrative design with data visualization to show how AI can shorten the low-income phase for overqualified immigrants.</div>
+        <div class="proj-tools">
+          <span class="tool-chip">Data Storytelling</span>
+          <span class="tool-chip">Scrollytelling (Vev)</span>
+          <span class="tool-chip">Visual Prototyping</span>
+        </div>
+        <a href="https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Data%20Story" target="_blank" class="btn-view">View Project →</a>
+      </div>
+
+      <!-- PROG 1 -->
+      <div class="proj-card fade-up" data-cat="prog">
+        <span class="proj-cat-badge">Data Programming</span>
+        <div class="proj-title">Supplier Relationship Network Analysis</div>
+        <p class="proj-desc">Network analysis of supplier relationships in a manufacturing supply chain using graph theory to uncover key influencers, transaction flows, and critical connection paths between suppliers.</p>
+        <div class="proj-highlight"><strong>Key Highlight:</strong> Measured centrality (in-degree, out-degree, betweenness) to identify the most influential and bridge suppliers, delivering both static and interactive network visualizations.</div>
+        <div class="proj-tools">
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Pandas</span>
+          <span class="tool-chip">NetworkX</span>
+          <span class="tool-chip">PyVis</span>
+        </div>
+        <a href="https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Network-Analysis" target="_blank" class="btn-view">View Project →</a>
+      </div>
+
+      <!-- PROG 2 -->
+      <div class="proj-card fade-up" data-cat="prog">
+        <span class="proj-cat-badge">Data Programming</span>
+        <div class="proj-title">Sales Performance &amp; Regional Target Analysis</div>
+        <p class="proj-desc">Integrates multiple sales datasets to evaluate representative performance against regional targets, using data merging, transformation, and aggregation to generate actionable business insights.</p>
+        <div class="proj-highlight"><strong>Key Highlight:</strong> Combined datasets using key joins, engineered total sales metrics, evaluated target attainment, and performed pivot analysis across regions, months, and representatives.</div>
+        <div class="proj-tools">
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">Pandas</span>
+          <span class="tool-chip">NumPy</span>
+        </div>
+        <a href="https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Exploratory%20Analysis" target="_blank" class="btn-view">View Project →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-label fade-up">Skills</div>
+    <h2 class="section-title fade-up">Technical Expertise</h2>
+    <p class="section-sub fade-up">A broad and deep toolkit spanning business intelligence, programming, data architecture, and storytelling.</p>
+    <div class="skills-wrapper fade-up" id="skillsWrapper">
+
+      <div class="skill-group">
+        <div class="skill-group-title">Business Intelligence</div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Power BI (Advanced DAX &amp; Power Query)</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="95"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Advanced Excel</span><span class="skill-pct">92%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="92"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Data Storytelling &amp; Custom Visuals (Deneb)</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="88"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Programming &amp; Analytics</div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Python (Pandas, NumPy, Matplotlib, Plotly, NetworkX)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">SQL (Advanced, CTEs, Window Functions)</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="90"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Data Engineering</div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">ETL Pipelines &amp; Automation (SSIS, SQL Server Agent)</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Dimensional Modeling (Star &amp; Snowflake Schemas)</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Slowly Changing Dimensions (SCD)</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Data Warehousing &amp; Database Design</span><span class="skill-pct">83%</span></div>
+          <div class="skill-track"><div class="skill-bar" data-w="83"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-label fade-up">Contact</div>
+    <h2 class="section-title fade-up">Let's Connect</h2>
+    <div class="contact-grid fade-up">
+      <div>
+        <p class="contact-intro">Open to data analyst roles, collaborative projects, and analytical consulting opportunities. Based in Oshawa, Canada — available remotely and locally.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-val"><a href="tel:+16476318629">+1 647-631-8629</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val"><a href="mailto:Ebubechi.enyiigbokwe@ontariotechu.net">Ebubechi.enyiigbokwe@ontariotechu.net</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-val">Oshawa, Ontario, Canada</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">💼</div>
+            <div>
+              <div class="ci-label">LinkedIn</div>
+              <div class="ci-val"><a href="https://www.linkedin.com/in/amanda-enyiigbokwe/" target="_blank">amanda-enyiigbokwe</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/amanda-enyiigbokwe/" target="_blank" class="social-link" title="LinkedIn">in</a>
+          <a href="https://github.com/InsightsbyAmanda" target="_blank" class="social-link" title="GitHub">⌥</a>
+        </div>
+      </div>
+      <div class="contact-cta-box">
+        <h3>Ready to work together?</h3>
+        <p>Whether you need a data analyst, a BI developer, or someone who can bridge the gap between raw data and strategic decisions — I'd love to hear from you.</p>
+        <a href="mailto:Ebubechi.enyiigbokwe@ontariotechu.net" class="btn-gold">Send a Message →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="container">
+    <p>© 2025 <span>Ebubechi Amanda Enyi-Igbokwe</span> · Data Analyst | Analytics &amp; AI · Oshawa, Canada</p>
+  </div>
+</footer>
+
+<script>
+  // ── Navbar scroll ──
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // ── Fade-up observer ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // animate skill bars inside visible skill groups
+        e.target.querySelectorAll('.skill-bar[data-w]').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Project filter ──
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.proj-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+</script>
+</body>
+</html>
