@@ -31,25 +31,6 @@ Core strengths include:
 
 ---
 
-## Experience Highlights
-
-- **Lincolnshire County Council** — Led the 2025 Childcare Sufficiency Assessment, delivering Power BI dashboards that informed ~£2M in resource allocation decisions. Automated ETL workflows, reducing manual processing by 60%.
-- **Lekki Gardens Estate** — Built financial models for real estate acquisitions and contributed to a 12% revenue increase across Lagos, Abuja, and Port Harcourt markets.
-- **Mutual Trust Microfinance Bank** — Supported strategic planning that drove 25% YoY loan portfolio growth and identified 3 untapped market segments via SQL-based customer segmentation.
-
----
-
-## Education & Certifications
-
-- **MBAI** — Ontario Tech University *(2026–2027)*
-- **MSc International Business with Data Analytics** — Ulster University *(Merit)*
-- **BSc Accounting** — Veritas University *(Upper Second-Class Honours)*
-- Microsoft Certified: Power BI Data Analyst Associate
-- Google Data Analytics Professional Certificate
-- Implementing AI Solutions in Business — DataCamp
-
----
-
 ## Tech Stack
 
 `Power BI` · `DAX` · `Power Query` · `SQL` · `Python` · `SSIS` · `Deneb` · `Excel` · `Pandas` · `NumPy` · `Matplotlib` · `Plotly` · `NetworkX`
