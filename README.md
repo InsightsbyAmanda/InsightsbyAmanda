@@ -12,9 +12,9 @@ I'm a data analyst with end-to-end experience delivering analytics solutions, fr
 
 Core strengths include:
 
-- **Business Intelligence** — Power BI (advanced DAX & Power Query), Excel, Deneb custom visuals
-- **Programming & Analytics** — Python (Pandas, NumPy, Matplotlib, Plotly, NetworkX), SQL (CTEs, window functions)
-- **Data Engineering** — ETL automation (SSIS, SQL Server Agent), star/snowflake schema design, SCD, data warehousing
+- **Business Intelligence**: Power BI (advanced DAX & Power Query), Excel, Deneb custom visuals
+- **Programming & Analytics**: Python (Pandas, NumPy, Matplotlib, Plotly, NetworkX), SQL (CTEs, window functions)
+- **Data Engineering**: ETL automation (SSIS, SQL Server Agent), star/snowflake schema design, SCD, data warehousing
 
 ---
 
