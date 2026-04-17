@@ -1,6 +1,6 @@
 # Ebubechi (Amanda) Enyi-Igbokwe Portfolio
 
-**Live Site:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
+**Portfolio:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
 
 A personal portfolio showcasing my data analytics experience across the public sector, real estate, and financial services with a focus on Power BI, SQL, Python, and data storytelling.
 
