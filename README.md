@@ -2,13 +2,13 @@
 
 **Live Site:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
 
-A personal portfolio showcasing 6+ years of data analytics experience across public sector, real estate, and financial services with a focus on Power BI, SQL, Python, and data storytelling.
+A personal portfolio showcasing my data analytics experience across the public sector, real estate, and financial services with a focus on Power BI, SQL, Python, and data storytelling.
 
 ---
 
 ## About
 
-I'm a data analyst with end-to-end experience delivering analytics solutions, from ETL pipelines and dimensional modeling to enterprise Power BI dashboards. Currently pursuing a Master of Business Analytics & Artificial Intelligence at Ontario Tech University.
+I'm a data analyst with end-to-end experience delivering analytics solutions, from ETL pipelines and dimensional modeling to enterprise Power BI dashboards. My work is defined by the ability to take complex, multi-source datasets and transform them into coherent, decision-ready intelligence from automated ETL pipelines to dynamic Power BI dashboards deployed at enterprise scale.
 
 Core strengths include:
 
@@ -18,7 +18,7 @@ Core strengths include:
 
 ---
 
-## Featured Projects
+## Projects
 
 | Project | Type | Tools |
 |---------|------|-------|
@@ -33,15 +33,11 @@ Core strengths include:
 
 ## Tech Stack
 
-`Power BI` · `DAX` · `Power Query` · `SQL` · `Python` · `SSIS` · `Deneb` · `Excel` · `Pandas` · `NumPy` · `Matplotlib` · `Plotly` · `NetworkX`
+`Power BI` · `DAX` · `Data Modeling` · `SQL` · `Python` · `SSIS` · `Deneb` · `Excel` · `Pandas` · `NumPy` · `Matplotlib` · `Plotly` · `NetworkX`
 
 ---
 
 ## Contact
 
 - **Email:** [Ebubechi.enyiigbokwe@ontariotechu.net](mailto:Ebubechi.enyiigbokwe@ontariotechu.net)
-- **Location:** Oshawa, Ontario, Canada
-
----
-
-> *Turning complexity into clarity — one dataset at a time.*
+- **Location:** Ontario, Canada
