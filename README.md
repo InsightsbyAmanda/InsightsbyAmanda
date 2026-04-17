@@ -1,4 +1,4 @@
-# Ebubechi Amanda Enyi-Igbokwe — Data Analyst Portfolio
+# Ebubechi Amanda Enyi-Igbokwe Portfolio
 
 **Live Site:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
 
