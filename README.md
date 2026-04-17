@@ -1,7 +1,6 @@
 # Ebubechi (Amanda) Enyi-Igbokwe Portfolio
 
-**View Portfolio →:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
-[Insights By Amanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
+**View Portfolio →** [Insights By Amanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
 
 A personal portfolio showcasing my data analytics experience in transforming complex, multi-source data into clear, actionable insights.
 
