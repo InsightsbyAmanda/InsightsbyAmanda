@@ -29,7 +29,7 @@ Core strengths include:
 | [Supplier Relationship Network Analysis](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Network-Analysis) | Network Analysis | Python, NetworkX, PyVis |
 | [Sales Performance & Regional Target Analysis](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Exploratory%20Analysis) | Exploratory Analysis | Python, Pandas, NumPy |
 | [Advanced SQL Data Analytics](https://github.com/InsightsbyAmanda/advanced-sql-analytics) | Data Analytics | SQL |
-| [SQL Data Warehouse](https://github.com/InsightsbyAmanda/sql-datawarehouse-project) | Data Engineering | SQL Server Management Studio (SSMS) |
+| [SQL Data Warehouse Deployment](https://github.com/InsightsbyAmanda/sql-datawarehouse-project) | Data Engineering | SQL Server Management Studio (SSMS) |
 
 
 
