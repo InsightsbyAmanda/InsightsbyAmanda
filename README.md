@@ -1,18 +1,19 @@
 # Ebubechi (Amanda) Enyi-Igbokwe Portfolio
 
-**Portfolio:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
+**View Portfolio →:** [insightsbyamanda.github.io/InsightsbyAmanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
+[Insights By Amanda](https://insightsbyamanda.github.io/InsightsbyAmanda/)
 
-A personal portfolio showcasing my data analytics experience across the public sector, real estate, and financial services with a focus on Power BI, SQL, Python, and data storytelling.
+A personal portfolio showcasing my data analytics experience in transforming complex, multi-source data into clear, actionable insights.
 
 ---
 
 ## About
 
-I'm a data analyst with end-to-end experience delivering analytics solutions, from ETL pipelines and dimensional modeling to enterprise Power BI dashboards. My work is defined by the ability to take complex, multi-source datasets and transform them into coherent, decision-ready intelligence from automated ETL pipelines to dynamic Power BI dashboards deployed at enterprise scale.
+I am a data analyst with experience delivering end-to-end analytics solutions, from data engineering and modeling to interactive Power BI dashboards and business reporting. My work focuses on turning complex, multi-source datasets into structured, decision-ready insights through automated ETL pipelines, scalable data models, and intuitive visualizations deployed at enterprise scale.
 
 Core strengths include:
 
-- **Business Intelligence**: Power BI (advanced DAX & Power Query), Excel, Deneb custom visuals
+- **Business Intelligence**: Power BI (DAX, Power Query), Excel, Deneb custom visuals
 - **Programming & Analytics**: Python (Pandas, NumPy, Matplotlib, Plotly, NetworkX), SQL (CTEs, window functions)
 - **Data Engineering**: ETL automation (SSIS, SQL Server Agent), star/snowflake schema design, SCD, data warehousing
 
@@ -28,7 +29,7 @@ Core strengths include:
 | [AI Tools & Immigrant Economic Mobility](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Data%20Story) | Scrollytelling | Vev, Visual Prototyping |
 | [Supplier Relationship Network Analysis](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Network-Analysis) | Network Analysis | Python, NetworkX, PyVis |
 | [Sales Performance & Regional Target Analysis](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Exploratory%20Analysis) | Exploratory Analysis | Python, Pandas, NumPy |
-| [Advanced SQL Data Analytics](https://github.com/InsightsbyAmanda/advanced-sql-analytics) | Exploratory Analysis | SQL |
+| [Advanced SQL Data Analytics](https://github.com/InsightsbyAmanda/advanced-sql-analytics) | Data Analytics | SQL |
 | [SQL Data Warehouse](https://github.com/InsightsbyAmanda/sql-datawarehouse-project) | Data Engineering | SQL Server Management Studio (SSMS) |
 
 
