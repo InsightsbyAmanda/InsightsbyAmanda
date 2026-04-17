@@ -28,6 +28,10 @@ Core strengths include:
 | [AI Tools & Immigrant Economic Mobility](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Data%20Story) | Scrollytelling | Vev, Visual Prototyping |
 | [Supplier Relationship Network Analysis](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Network-Analysis) | Network Analysis | Python, NetworkX, PyVis |
 | [Sales Performance & Regional Target Analysis](https://github.com/InsightsbyAmanda/Portfolio-projects/tree/main/Exploratory%20Analysis) | Exploratory Analysis | Python, Pandas, NumPy |
+| [Advanced SQL Data Analytics](https://github.com/InsightsbyAmanda/advanced-sql-analytics) | Exploratory Analysis | SQL |
+| [SQL Data Warehouse](https://github.com/InsightsbyAmanda/sql-datawarehouse-project) | Data Engineering | SQL Server Management Studio (SSMS) |
+
+
 
 ---
 
